@@ -1,0 +1,361 @@
+/* The CSS reset selectors need to be prepended with #hTOWrapper, otherwise they break the styles on the HLU site where no reset has been used. */
+
+#hTOWrapper  div, #hTOWrapper  span, #hTOWrapper  applet, #hTOWrapper  object, #hTOWrapper  iframe, #hTOWrapper h1, #hTOWrapper  h2, #hTOWrapper  h3, #hTOWrapper  h4, #hTOWrapper  h5, #hTOWrapper  h6, #hTOWrapper  p, #hTOWrapper  blockquote, #hTOWrapper  pre, #hTOWrapper a, #hTOWrapper  abbr, #hTOWrapper  acronym, #hTOWrapper  address, #hTOWrapper  big, #hTOWrapper  cite, #hTOWrapper  code, #hTOWrapper del, #hTOWrapper  dfn, #hTOWrapper  em, #hTOWrapper  font, #hTOWrapper  img, #hTOWrapper  ins, #hTOWrapper  kbd, #hTOWrapper  q, #hTOWrapper  s, #hTOWrapper  samp, #hTOWrapper small, #hTOWrapper  strike, #hTOWrapper  strong, #hTOWrapper  sub, #hTOWrapper  sup, #hTOWrapper  tt, #hTOWrapper  var, #hTOWrapper dl, #hTOWrapper  dt, #hTOWrapper  dd, #hTOWrapper  ol, #hTOWrapper  ul, #hTOWrapper  li, #hTOWrapper fieldset, #hTOWrapper  form, #hTOWrapper  label, #hTOWrapper  legend, #hTOWrapper table, #hTOWrapper  caption, #hTOWrapper  tbody, #hTOWrapper  tfoot, #hTOWrapper  thead, #hTOWrapper  tr, #hTOWrapper  th, #hTOWrapper  td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* Counters Drupal's default */
+#hTOWrapper label {
+	display: inline;
+}
+
+#hTOWrapper ol, 
+#hTOWrapper  ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+#hTOWrapper table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+#hTOWrapper caption, 
+#hTOWrapper  th, 
+#hTOWrapper  td {
+	text-align: left;
+	font-weight: normal;
+}
+#hTOWrapper blockquote:before, #hTOWrapper  blockquote:after, #hTOWrapper 
+q:before, #hTOWrapper  q:after {
+	content: "";
+}
+#hTOWrapper blockquote, #hTOWrapper  q {
+	quotes: "" "";
+}
+/* end reset */
+
+#hTOWrapper {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	padding: 10px;
+}
+
+#hTOWrapper p, 
+#hTOWrapper h1, 
+#hTOWrapper h2, 
+#hTOWrapper table {
+	margin-bottom: 10px;
+}
+
+#hTOWrapper table {
+	border-collapse: collapse;
+}
+
+#hTOWrapper th, 
+#hTOWrapper td {
+	border: 1px solid #888;
+	padding: 4px;
+}
+
+#hTOWrapper #hTOBasicInfo th,
+#hTOWrapper #hTOBasicInfo td {
+	border: none;
+}
+
+#hTOWrapper td.hTOActions {
+	font-size: 0.9em;
+}
+
+#hTOWrapper td.student {
+	background-color: #ffa;
+}
+
+#hTOWrapper td.tandemStudent {
+	background-color: #fca;
+}
+
+#hTOWrapper td.xdzPilot {
+	background-color: #ff5;
+}
+
+#hTOWrapper td.cwwPilot {
+	background-color: #ccf;
+}
+
+#hTOWrapper td span.ok {
+	color: #888;
+}
+
+#hTOWrapper td span.notOk {
+	font-weight: bold;
+}
+
+#hTOWrapper th {
+	font-weight: bold;
+}
+
+#hTOWrapper h1 {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#hTOWrapper h2 {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+#hTOWrapper a:hover, 
+#hTOWrapper a:link, 
+#hTOWrapper a:visited, 
+#hTOWrapper a:active {
+	color: #00c;
+}
+
+#hTOWrapper fieldset {
+	border: 1px solid #888;
+	padding: 10px;
+}
+
+#hTOWrapper input,
+#hTOWrapper fieldset {
+	margin-bottom: 5px;
+}
+
+#hTOWrapper fieldset.hTOAddFormType {
+	display: none;
+}
+
+#hTOWrapper {
+	border: 1px solid #888;
+	padding: 10px;
+}
+
+#hTOWrapper #hTOAddFormContainer,
+#hTOWrapper #hTOEditDateFormContainer {
+	display: none;
+	border: 1px solid #888;
+	padding: 10px;
+	width: 600px;
+	position: relative;
+	z-index: 1;
+	margin-bottom: 10px;
+}
+
+#hTOWrapper #hTOInfo {
+	position: relative;
+}
+
+#hTOWrapper #hTOMessages {
+	border: 1px solid #0f0;
+	background: #cfc;
+}
+
+#hTOWrapper #hTOErrors {
+	border: 1px solid #f00;
+	background: #fcc;
+}
+
+#hTOWrapper .dayError {
+	border: 1px solid #f00;
+	background: #fcc;
+	padding: 10px;
+	width: 600px;
+}
+#hTOWrapper .dayMessage {
+	border: 1px solid #0f0;
+	background: #cfc;
+	padding: 10px;
+	width: 600px;
+}
+
+#hTOWrapper #hTOErrors,
+#hTOWrapper #hTOMessages {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 600px;
+	padding: 10px;
+	z-index: 2;
+}
+
+#hTOWrapper #hTOTableContainer {
+	position: relative;
+}
+
+#hTOWrapper #hTOThrobberList,
+#hTOWrapper #hTOThrobberForm,
+#hTOWrapper #hTOThrobberCalendar {
+	position: absolute;
+	top: 3px;
+	left: 8px;
+	display: none;
+}
+
+#hTOWrapper #hTOCalendar {
+	margin-bottom: 5px;
+}
+
+#hTOWrapper #hTOCalendar ul {
+	width: 600px;
+	height: 1%;
+	overflow: hidden;
+	position: relative;
+}
+
+#hTOWrapper #hTOCalendar table {
+	position: relative;
+	bborder-spacing: 3px;
+	bborder-collapse: separate;
+}
+
+#hTOWrapper #hTOCalendar ul li {
+	display: block;
+	float: left;
+	/* IE doesn't like top and bottom padding, so it's done with an extra span */
+	padding: 0 3px 0 3px;
+	bborder: 1px solid #888;
+	margin-right: 3px;
+	cursor: pointer;
+	width: 60px;
+	height: 26px;
+	position: relative;
+}
+
+#hTOWrapper #hTOCalendar th,
+#hTOWrapper #hTOCalendar td {
+	padding: 5px 3px 1px 3px;
+	bborder: none;
+	cursor: pointer;
+	width: 60px;
+	height: 26px;
+}
+
+#hTOWrapper #hTOCalendar td div {
+	position: relative;
+}
+
+#hTOWrapper #hTOCalendar ul li span {
+	line-height: 26px;
+}
+
+#hTOCalendar table {
+	float: left;
+}
+
+#hTOCalendarExpanded {
+	height: 1%;
+	overflow: hidden;
+}
+
+img.hTORoundMask {
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+#hTOWrapper #hTOCalendar p.hTOActions {
+	cursor: pointer;
+	float: left;
+	width: 50px;
+	margin-top: 5px;
+}
+
+#hTOWrapper #hTOCalendar ul li.hTOActions {
+	border: none;
+	padding: 5px 0px 1px 4px;
+	width: auto;
+}
+
+#hTOWrapper #hTOCalendar ul li a:link,
+#hTOWrapper #hTOCalendar ul li a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+#hTOWrapper #hTOCalendar ul li.hTOCurrentDate a:link,
+#hTOWrapper #hTOCalendar ul li.hTOCurrentDate a:visited,
+#hTOWrapper #hTOCalendar ul li.hTOCurrentDate,
+#hTOWrapper #hTOCalendar table td.hTOCurrentDate {
+	/* On the TODO list */
+	color: red;
+}
+
+/* No wrapper selector, since this gets generated at the bottom of the page, outside the wrapper */
+#tooltip {
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:2px 5px;
+	color:#333;
+	display:none;
+	z-index: 3;
+}
+
+#hTOWrapper th.hTOThrobber {
+	width: 20px;
+}
+
+#hTOWrapper #hTOEditDateButton {
+	display:none;
+}
+
+/*#tooltip table th,*/
+
+#tooltip table td,
+#tooltip table th {
+	font-size: 10px;
+	text-align: center;
+}
+
+#tooltip table td span.happy {
+	color: green;
+}
+#tooltip table td span.unhappy {
+	color: red;
+}
+
+div.hto-bang-good,
+div.hto-bang-bad {
+	position: absolute;
+}
+
+.hto-bang-good,
+.hto-bang-bad {
+	color: #fff;
+	top: 0;
+	right: 0;
+	opacity: 0.3;
+	height: 26px;
+}
+
+.hto-bang-good {
+	background: #080;
+
+}
+.hto-bang-bad {
+	background: #800;
+}
+
+
+/* I <3 IE */
+#hTOForm {
+	position: relative;
+	z-index: 1;
+}
+#hTOInfo {
+	position: relative;
+	z-index: 2;
+}
+
