@@ -252,7 +252,7 @@ Class Controller_Ajax extends Controller
 	 */
 	function action_image() {
 		noCacheHeaders();
-		$cww = (int)$_GET['c'];
+		$ctq = (int)$_GET['c'];
 		$xdz = (int)$_GET['x'];
 		$happy = (int)$_GET['h'];
 		$unhappy = (int)$_GET['u'];
@@ -282,14 +282,14 @@ Class Controller_Ajax extends Controller
 			// bg
 			imagefill($img, 0,0,$white);
 			
-			// CWW Pilot slot
+			// CTQ Pilot slot
 			$points = array(
 				0,0,
 				$width, 0,
 				$width, 4,
 				0,4,
 			);
-			if($cww) {
+			if($ctq) {
 				imagefilledpolygon ( $img , $points , 4 , $blue );		
 			}
 	

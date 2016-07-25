@@ -36,7 +36,7 @@ class Model_HTO extends Kohana_Model {
 			WHERE date = :date 
 			ORDER BY 
 				f_xdz_pilot DESC, 
-				f_cww_pilot DESC, 
+				f_ctq_pilot DESC, 
 				f_licenced DESC, 
 				f_s_aff DESC, 
 				f_s_aff2 DESC, 
@@ -51,7 +51,7 @@ class Model_HTO extends Kohana_Model {
 		
 		
 		// Go through the rows, and set attributes for the day
-		$dayCWWPilot = false;
+		$dayCTQPilot = false;
 		$dayXDZPilot = false;
 		
 		$dayNoAFFInstructors = 0;
@@ -67,8 +67,8 @@ class Model_HTO extends Kohana_Model {
 		$dayTandemInstructor = false;
 		
 		foreach($data as $row) {
-			if($row['f_cww_pilot']) {
-				$dayCWWPilot = $row['name'];
+			if($row['f_ctq_pilot']) {
+				$dayCTQPilot = $row['name'];
 			}
 			if($row['f_xdz_pilot']) {
 				$dayXDZPilot = $row['name'];
@@ -102,8 +102,8 @@ class Model_HTO extends Kohana_Model {
 		$newData = array();
 		foreach($data as $row) {
 			// Set role
-			if(isset($row['f_cww_pilot']) && $row['f_cww_pilot']) {
-				$row['role'] = 'CWW-pilotti';
+			if(isset($row['f_ctq_pilot']) && $row['f_ctq_pilot']) {
+				$row['role'] = 'CTQ-pilotti';
 			}
 			else if(isset($row['f_xdz_pilot']) && $row['f_xdz_pilot']) {
 				$row['role'] = 'XDZ-pilotti';
@@ -133,13 +133,13 @@ class Model_HTO extends Kohana_Model {
 			$row['happiness'] = 1;
 
 			// Planes:
-			if($row['f_cww_only'] && !$dayCWWPilot) {
+			if($row['f_ctq_only'] && !$dayCTQPilot) {
 				$row['happiness'] = 0;
 			}
 			else if($row['f_xdz_only'] && !$dayXDZPilot) {
 				$row['happiness'] = 0;
 			}
-			else if(!$dayXDZPilot && !$dayCWWPilot) {
+			else if(!$dayXDZPilot && !$dayCTQPilot) {
 				$row['happiness'] = 0;				
 			}
 			
@@ -274,12 +274,12 @@ class Model_HTO extends Kohana_Model {
 
 
 			// Plane flags
-			if($row['f_cww_only']) {
-				if($dayCWWPilot) {
-					$happyNotes .= ' Hyppää vain CWW:stä, ';
+			if($row['f_ctq_only']) {
+				if($dayCTQPilot) {
+					$happyNotes .= ' Hyppää vain CTQ:stä, ';
 				}
 				else {
-					$unhappyNotes .= ' Tarvitsee CWW:n, ';
+					$unhappyNotes .= ' Tarvitsee CTQ:n, ';
 				}
 			}
 			else if($row['f_xdz_only']) {
@@ -318,7 +318,7 @@ class Model_HTO extends Kohana_Model {
 		);
 		
 		// Missing pilot?
-		if(!$dayCWWPilot && !$dayXDZPilot) {
+		if(!$dayCTQPilot && !$dayXDZPilot) {
 			$dayInfo['pilotMissing'] = 1;
 		}
 		
@@ -358,9 +358,9 @@ class Model_HTO extends Kohana_Model {
 				date, 
 				from_time,
 				notes,
-				f_cww_pilot,
+				f_ctq_pilot,
 				f_xdz_pilot,
-				f_cww_only,
+				f_ctq_only,
 				f_xdz_only,
 				f_licenced,
 				f_unhappy,
@@ -381,9 +381,9 @@ class Model_HTO extends Kohana_Model {
 				:date, 
 				:from_time,
 				:notes,
-				:f_cww_pilot,
+				:f_ctq_pilot,
 				:f_xdz_pilot,
-				:f_cww_only,
+				:f_ctq_only,
 				:f_xdz_only,
 				:f_licenced,
 				:f_unhappy,
@@ -423,9 +423,9 @@ class Model_HTO extends Kohana_Model {
 				date = :date, 
 				from_time = :from_time,
 				notes = :notes,
-				f_cww_pilot = :f_cww_pilot,
+				f_ctq_pilot = :f_ctq_pilot,
 				f_xdz_pilot = :f_xdz_pilot,
-				f_cww_only = :f_cww_only,
+				f_ctq_only = :f_ctq_only,
 				f_xdz_only = :f_xdz_only,
 				f_licenced = :f_licenced,
 				f_unhappy = :f_unhappy,
@@ -500,7 +500,7 @@ class Model_HTO extends Kohana_Model {
 		// In addition to the check, we set key 'hTO_f_unhappy', which isn't set in the POST
 		// array.
 		$checkBoxFields = array(
-			'hTO_f_cww_only',
+			'hTO_f_ctq_only',
 			'hTO_f_xdz_only',
 			'hTO_f_unhappy',
 		);
@@ -566,10 +566,10 @@ class Model_HTO extends Kohana_Model {
 		
 		switch($data['hTOPersonType']) {
 			case 'hTOPersonLicenced':
-				$query->param(':f_cww_pilot', 0);
+				$query->param(':f_ctq_pilot', 0);
 				$query->param(':f_xdz_pilot', 0);
 				
-				$query->param(':f_cww_only', $data['hTO_f_cww_only']);
+				$query->param(':f_ctq_only', $data['hTO_f_ctq_only']);
 				$query->param(':f_xdz_only', $data['hTO_f_xdz_only']);
 				
 				$query->param(':f_licenced', 1);
@@ -591,10 +591,10 @@ class Model_HTO extends Kohana_Model {
 			
 			case 'hTOPersonStudent':
 			
-				$query->param(':f_cww_pilot', 0);
+				$query->param(':f_ctq_pilot', 0);
 				$query->param(':f_xdz_pilot', 0);
 				
-				$query->param(':f_cww_only', $data['hTO_f_cww_only']);
+				$query->param(':f_ctq_only', $data['hTO_f_ctq_only']);
 				$query->param(':f_xdz_only', $data['hTO_f_xdz_only']);
 				
 				$query->param(':f_licenced', 0);
@@ -633,10 +633,10 @@ class Model_HTO extends Kohana_Model {
 			break;
 			
 			case 'hTOPersonTandemStudent':
-				$query->param(':f_cww_pilot', 0);
+				$query->param(':f_ctq_pilot', 0);
 				$query->param(':f_xdz_pilot', 0);
 
-				$query->param(':f_cww_only', $data['hTO_f_cww_only']);
+				$query->param(':f_ctq_only', $data['hTO_f_ctq_only']);
 				$query->param(':f_xdz_only', $data['hTO_f_xdz_only']);
 				
 
@@ -655,10 +655,10 @@ class Model_HTO extends Kohana_Model {
 				$query->param(':f_s_tandem', 1);
 			break;
 			
-			case 'hTOPersonCWWPilot':
-				$query->param(':f_cww_pilot', 1);
+			case 'hTOPersonCTQPilot':
+				$query->param(':f_ctq_pilot', 1);
 				$query->param(':f_xdz_pilot', 0);
-				$query->param(':f_cww_only', 0);
+				$query->param(':f_ctq_only', 0);
 				$query->param(':f_xdz_only', 0);
 				$query->param(':f_licenced', 0);
 				$query->param(':f_unhappy', 0);
@@ -676,9 +676,9 @@ class Model_HTO extends Kohana_Model {
 			break;
 			
 			case 'hTOPersonXDZPilot':
-				$query->param(':f_cww_pilot', 0);
+				$query->param(':f_ctq_pilot', 0);
 				$query->param(':f_xdz_pilot', 1);
-				$query->param(':f_cww_only', 0);
+				$query->param(':f_ctq_only', 0);
 				$query->param(':f_xdz_only', 0);
 				$query->param(':f_licenced', 0);
 				$query->param(':f_unhappy', 0);
@@ -741,7 +741,7 @@ class Model_HTO extends Kohana_Model {
 						'1' => 0,						
 					),
 				),
-				'cww' => array(
+				'ctq' => array(
 					's' => array(
 						'0' => 0,
 						'1' => 0,
@@ -759,7 +759,7 @@ class Model_HTO extends Kohana_Model {
 			
 			foreach($people as $person) {
 				// This data is for generating the date background image:
-				if($person['role'] == 'CWW-pilotti') {
+				if($person['role'] == 'CTQ-pilotti') {
 					$cWWPilots++;
 				}
 				else if($person['role'] == 'XDZ-pilotti') {
@@ -778,7 +778,7 @@ class Model_HTO extends Kohana_Model {
 					$key2 = 'l';
 				}
 				else {
-					if($person['role'] != 'CWW-pilotti' && $person['role'] != 'XDZ-pilotti') {
+					if($person['role'] != 'CTQ-pilotti' && $person['role'] != 'XDZ-pilotti') {
 						$key2 = 's';
 					}
 					else {
@@ -795,16 +795,16 @@ class Model_HTO extends Kohana_Model {
 					$key2 = 's';				
 				}
 				*/
-				if(!$person['f_cww_only']) {
+				if(!$person['f_ctq_only']) {
 					logg('adding to xdz');
 					// Add to XDZ array
 					$summary['xdz'][$key2][$person['happiness']] = $summary['xdz'][$key2][$person['happiness']] + 1;
 				}
 				
 				if(!$person['f_xdz_only']) {
-					logg('adding to cww');
-					// Add to CWW array
-					$summary['cww'][$key2][$person['happiness']] = $summary['cww'][$key2][$person['happiness']] + 1;
+					logg('adding to ctq');
+					// Add to CTQ array
+					$summary['ctq'][$key2][$person['happiness']] = $summary['ctq'][$key2][$person['happiness']] + 1;
 				}
 
 			}

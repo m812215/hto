@@ -54,7 +54,7 @@
 				<a href="?=e"><img src="<?php echo URL::base();?>img/calendar.png" alt="Lisää päiviä" title="Näytä lisää päiviä" id="hTOExpandCalendar"/></a>
 				
 				<img src="<?php echo URL::base();?>img/help.png" class="tooltip" title="Päivämäärien värien selitykset:<br/>
-				- Yläreuna sininen: CWW-pilotti paikalla.<br/>
+				- Yläreuna sininen: CTQ-pilotti paikalla.<br/>
 				- Alareuna keltainen: XDZ-pilotti paikalla.<br/>
 				- Vihreän ja punaisen palkin pituus: Ilmoittautuneiden hyppääjien määrä.
 				<br/><br/>
