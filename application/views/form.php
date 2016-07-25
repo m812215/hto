@@ -90,9 +90,9 @@
 -->
 				<input type="submit" value="Tallenna" class="hTOSubmit" />&nbsp;<input type="button" value="Peruuta" class="hTOCancel"/>
 			</fieldset>
+
 <!--
 			<label><input type="radio" name="hTOPersonType" class="hTOPersonType" value="hTOPersonXDZPilot"/> XDZ-pilotti</label><br/>
-
 			<fieldset id="hTOAddFormXDZPilot" class="hTOAddFormType">
 				<input type="submit" value="Tallenna" class="hTOSubmit" />&nbsp;<input type="button" value="Peruuta" class="hTOCancel"/>
 			</fieldset>
