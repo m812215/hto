@@ -75,8 +75,8 @@
 							else if($row['role'] == 'XDZ-pilotti') {
 								echo ' class="xdzPilot"';
 							}
-							else if($row['role'] == 'CWW-pilotti') {
-								echo ' class="cwwPilot"';
+							else if($row['role'] == 'CTQ-pilotti') {
+								echo ' class="ctqPilot"';
 							}
 							?>><?php echo $row['role']; ?></td>
 

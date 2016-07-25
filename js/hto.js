@@ -36,8 +36,8 @@ function hTOInit() {
 				$('#hTOAddFormTandemStudent').show();
 			break;
 			
-			case "hTOPersonCWWPilot":
-				$('#hTOAddFormCWWPilot').show();			
+			case "hTOPersonCTQPilot":
+				$('#hTOAddFormCTQPilot').show();			
 			break;
 			
 			case "hTOPersonXDZPilot":
@@ -401,8 +401,8 @@ function hTOPopulateForm(data) {
 	else if(data.f_s_tandem == "1") {
 		$("input[name=hTOPersonType]").filter("[value=hTOPersonTandemStudent]").attr("checked","checked");
 	}
-	else if(data.f_cww_pilot == "1") {
-		$("input[name=hTOPersonType]").filter("[value=hTOPersonCWWPilot]").attr("checked","checked");
+	else if(data.f_ctq_pilot == "1") {
+		$("input[name=hTOPersonType]").filter("[value=hTOPersonCTQPilot]").attr("checked","checked");
 	}
 	else if(data.f_xdz_pilot == "1") {
 		$("input[name=hTOPersonType]").filter("[value=hTOPersonXDZPilot]").attr("checked","checked");
@@ -433,7 +433,7 @@ function hTOPopulateForm(data) {
 	
 	// Duplicate flags that need to be checked in the right fieldset
 	var miscFlags = new Array(
-            'f_cww_only',
+            'f_ctq_only',
             'f_xdz_only',
             'f_unhappy'
 	);

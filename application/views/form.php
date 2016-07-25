@@ -47,9 +47,9 @@
 					<label><input type="checkbox" name="hTO_f_i_tandem" /> Pudotan tandemeita</label><br/>
 				</fieldset>
 			<!--
-				<label><input type="checkbox" name="hTO_f_xdz_only_l" />Hyppään vain XDZ:sta <img src="<?php echo URL::base();?>img/help.png" class="tooltip" title="Vierailijoiden kannattaa ruksata tämä, niin tiedetään ettei kyseinen hyppääjä ole täyttämässä CWW-pokia. Tai muutenkin jos matalat ei nappaa."/></label><br/>
+				<label><input type="checkbox" name="hTO_f_xdz_only_l" />Hyppään vain XDZ:sta <img src="<?php echo URL::base();?>img/help.png" class="tooltip" title="Vierailijoiden kannattaa ruksata tämä, niin tiedetään ettei kyseinen hyppääjä ole täyttämässä CTQ-pokia. Tai muutenkin jos matalat ei nappaa."/></label><br/>
 
-				<label><input type="checkbox" name="hTO_f_cww_only_l" />Hyppään vain CWW:stä</label><br/>
+				<label><input type="checkbox" name="hTO_f_ctq_only_l" />Hyppään vain CTQ:stä</label><br/>
 -->
 				<label title=":("><input type="checkbox" name="hTO_f_unhappy_l" /><img src="<?php echo URL::base();?>img/frown.gif" alt="Ei OK" width="15" height="15" /> <img src="<?php echo URL::base();?>img/help.png" class="tooltip" title="Jos olisit tulossa, mutta jostain vielä kiikastaa, ruksaa tämä ja kirjoita 'Huom'-kohtaan miksi suupielet ovat alaspäin, esim. 'Jos saan kyydin'. Kun kyyti sitten löytyy, ota tästä ruksi pois."/></label><br/>
 
@@ -71,7 +71,7 @@
 <!--
 				<label><input type="checkbox" name="hTO_f_xdz_only_s" />Hyppään vain XDZ:sta</label><br/>
 
-				<label><input type="checkbox" name="hTO_f_cww_only_s" />Hyppään vain CWW:stä <img src="<?php echo URL::base();?>img/help.png" class="tooltip" title="PL-oppilaan kannattaa ruksata tämä, ettei päädy kerholle ihmettelemään kuinka Apinahissistä ei voikaan hypätä pakkolaukaisuhyppyjä."/></label><br/>
+				<label><input type="checkbox" name="hTO_f_ctq_only_s" />Hyppään vain CTQ:stä <img src="<?php echo URL::base();?>img/help.png" class="tooltip" title="PL-oppilaan kannattaa ruksata tämä, ettei päädy kerholle ihmettelemään kuinka Apinahissistä ei voikaan hypätä pakkolaukaisuhyppyjä."/></label><br/>
 -->
 				<label title="foo"><input type="checkbox" name="hTO_f_unhappy_s" /><img src="<?php echo URL::base();?>img/frown.gif" alt="Ei OK" width="15" height="15" /> <img src="<?php echo URL::base();?>img/help.png" class="tooltip" title="Jos olisit tulossa, mutta jostain vielä kiikastaa, ruksaa tämä ja kirjoita 'Huom'-kohtaan miksi suupielet ovat alaspäin, esim. 'Jos saan kyydin'. Kun kyyti sitten löytyy, ota tästä ruksi pois."/></label><br/>
 
@@ -86,7 +86,7 @@
             <!--
 				<label><input type="checkbox" name="hTO_f_xdz_only_s" />Hyppään vain XDZ:sta</label><br/>
 
-				<label><input type="checkbox" name="hTO_f_cww_only_s" />Hyppään vain CWW:stä</label><br/>
+				<label><input type="checkbox" name="hTO_f_ctq_only_s" />Hyppään vain CTQ:stä</label><br/>
 -->
 				<input type="submit" value="Tallenna" class="hTOSubmit" />&nbsp;<input type="button" value="Peruuta" class="hTOCancel"/>
 			</fieldset>
@@ -97,9 +97,9 @@
 				<input type="submit" value="Tallenna" class="hTOSubmit" />&nbsp;<input type="button" value="Peruuta" class="hTOCancel"/>
 			</fieldset>
 -->
-			<label><input type="radio" name="hTOPersonType" class="hTOPersonType" value="hTOPersonCWWPilot"/> CTQ-pilotti</label><br/>
+			<label><input type="radio" name="hTOPersonType" class="hTOPersonType" value="hTOPersonCTQPilot"/> CTQ-pilotti</label><br/>
 
-			<fieldset id="hTOAddFormCWWPilot" class="hTOAddFormType">
+			<fieldset id="hTOAddFormCTQPilot" class="hTOAddFormType">
 				<input type="submit" value="Tallenna" class="hTOSubmit" />&nbsp;<input type="button" value="Peruuta" class="hTOCancel"/>
 			</fieldset>
 

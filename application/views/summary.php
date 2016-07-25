@@ -10,19 +10,19 @@
 							<th><b>Kaikki</b></th>
 						</tr>
 						<tr>
-							<th>CWW</th>
+							<th>CTQ</th>
 							<td>
-								<span class="happy">'.($summary['cww']['l']['1'] ? $summary['cww']['l']['1'] : '-').'</span>&nbsp;/&nbsp;
-								<span class="unhappy">'.($summary['cww']['l']['0'] ? $summary['cww']['l']['0'] : '-').'</span>
+								<span class="happy">'.($summary['ctq']['l']['1'] ? $summary['ctq']['l']['1'] : '-').'</span>&nbsp;/&nbsp;
+								<span class="unhappy">'.($summary['ctq']['l']['0'] ? $summary['ctq']['l']['0'] : '-').'</span>
 							</td>
 							<td>
-								<span class="happy">'.($summary['cww']['s']['1'] ? $summary['cww']['s']['1'] : '-').'</span>&nbsp;/&nbsp;
-								<span class="unhappy">'.($summary['cww']['s']['0'] ? $summary['cww']['s']['0'] : '-').'</span>
+								<span class="happy">'.($summary['ctq']['s']['1'] ? $summary['ctq']['s']['1'] : '-').'</span>&nbsp;/&nbsp;
+								<span class="unhappy">'.($summary['ctq']['s']['0'] ? $summary['ctq']['s']['0'] : '-').'</span>
 							</td>
 				';
 
-				$happyTotal = $summary['cww']['l']['1']+$summary['cww']['s']['1'];
-				$unhappyTotal = $summary['cww']['l']['0']+$summary['cww']['s']['0'];
+				$happyTotal = $summary['ctq']['l']['1']+$summary['ctq']['s']['1'];
+				$unhappyTotal = $summary['ctq']['l']['0']+$summary['ctq']['s']['0'];
                 /*
 				$summaryHtml .= '
 							<td>
