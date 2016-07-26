@@ -112,7 +112,8 @@ class Model_HTO extends Kohana_Model {
 			else if(
 				(isset($row['f_s_aff']) && $row['f_s_aff']) ||
 				(isset($row['f_s_aff2']) && $row['f_s_aff2']) ||
-				(isset($row['f_s_sl']) && $row['f_s_sl'])
+				(isset($row['f_s_sl']) && $row['f_s_sl']) ||
+				(isset($row['f_s_fs']) && $row['f_s_fs'])
 			){
 				$row['role'] = 'Oppilas';
 			}
@@ -600,23 +601,33 @@ class Model_HTO extends Kohana_Model {
 						$query->param(':f_s_aff', 0);
 						$query->param(':f_s_aff2', 0);
 						$query->param(':f_s_sl', 1);
+						$query->param(':f_s_fs', 0);
 					break;
 
 					case 'hTO_f_s_aff':
 						$query->param(':f_s_aff', 1);
 						$query->param(':f_s_aff2', 0);
 						$query->param(':f_s_sl', 0);
+						$query->param(':f_s_fs', 0);
 					break;
 
 					case 'hTO_f_s_aff2':
 						$query->param(':f_s_aff', 0);
 						$query->param(':f_s_aff2', 1);
 						$query->param(':f_s_sl', 0);
+						$query->param(':f_s_fs', 0);
+					break;
+
+					case 'hTO_f_s_fs':
+						$query->param(':f_s_aff', 0);
+						$query->param(':f_s_aff2', 0);
+						$query->param(':f_s_sl', 0);
+						$query->param(':f_s_fs', 1);
 					break;
 				}
 
 				$query->param(':f_s_radio', $data['hTO_f_s_radio']);
-				$query->param(':f_s_fs', $data['hTO_f_s_fs']);
+		//		$query->param(':f_s_fs', $data['hTO_f_s_fs']);
 				$query->param(':f_s_tandem', 0);
 
 			break;
