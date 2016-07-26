@@ -36,8 +36,8 @@ function hTOInit() {
 				$('#hTOAddFormTandemStudent').show();
 			break;
 			
-			case "hTOPersonCWWPilot":
-				$('#hTOAddFormCWWPilot').show();			
+			case "hTOPersonCTQPilot":
+				$('#hTOAddFormCTQPilot').show();			
 			break;
 			
 			case "hTOPersonXDZPilot":
