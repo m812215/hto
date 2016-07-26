@@ -42,7 +42,7 @@
 
 					<label><input type="checkbox" name="hTO_f_i_radio" /> Toimin radiokouluttajana</label><br/>
 
-					<label><input type="checkbox" name="hTO_f_i_fs" /> Toimin FS-kouluttajana</label><br/>
+                    <label><input type="checkbox" name="hTO_f_i_fs" /> Toimin VPK:na</label><br/>
 
 					<label><input type="checkbox" name="hTO_f_i_tandem" /> Pudotan tandemeita</label><br/>
 				</fieldset>
@@ -67,7 +67,7 @@
 
 				<label><input type="checkbox" name="hTO_f_s_radio" />Tarvitsen radiokouluttajan</label><br/>
 
-				<label><input type="checkbox" name="hTO_f_s_fs" />Tarvitsen FS-kouluttajan</label><br/>
+                <label><input type="checkbox" name="hTO_f_s_fs" />Tarvitsen Mesun/VPK:n</label><br/>
 <!--
 				<label><input type="checkbox" name="hTO_f_xdz_only_s" />Hyppään vain XDZ:sta</label><br/>
 
