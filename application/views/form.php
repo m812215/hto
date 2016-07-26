@@ -65,9 +65,10 @@
 
 				<label><input type="radio" name="hTOStudentType" value="hTO_f_s_aff2" />Tarvitsen 2 NOVA-mesua</label><br/>
 
+                <label><input type="radio" name="hTOStudentType" value="hTO_f_s_fs" />Tarvitsen VPK:n</label><br/>
+
 				<label><input type="checkbox" name="hTO_f_s_radio" />Tarvitsen radiokouluttajan</label><br/>
 
-                <label><input type="checkbox" name="hTO_f_s_fs" />Tarvitsen Mesun/VPK:n</label><br/>
 <!--
 				<label><input type="checkbox" name="hTO_f_xdz_only_s" />Hyppään vain XDZ:sta</label><br/>
 
