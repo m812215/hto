@@ -7,12 +7,11 @@ Class Controller_Ajax extends Controller
     function action_index() {
 		$this->action_list(date('Y-m-d'));
     }
-    
-    
+
     /**
      * Prints the full data list for a given date.
      * @param $date String an ISO-formatted date stamp. Defaults to today.
-     * 
+     *
      * This function and the associated template should only be called when data has changed and
      * we need to update the calendar as well as the list. In other cases update hTOListProper
      * only.
@@ -35,18 +34,17 @@ Class Controller_Ajax extends Controller
 		// Get people who signed up for today
 		$hto = new Model_HTO();
 		$people = $hto->getPeopleForDate($date);
-		
+
 		// Get calendar contents
 		$view->dates = $hto->getDates();
-		
+
 		// Assign variables to template
 		$view->data = $people;
 		$view->date = $date;
-		
+
 		$this->request->response = $view->render();
-	}    
-    
-    
+	}
+
     /**
      * Prints the actual list only for a given date, without the calendar.
      * @param $date String an ISO-formatted date stamp. Defaults to today.
@@ -69,15 +67,14 @@ Class Controller_Ajax extends Controller
 		// Get people who signed up for today
 		$hto = new Model_HTO();
 		$people = $hto->getPeopleForDate($date);
-		
+
 		// Assign variables to template
 		$view->data = $people;
 		$view->date = $date;
-		
+
 		$this->request->response = $view->render();
-	}    
-	
-	
+	}
+
 	/**
      * Gets the small calendar. Used when collapsing the expanded calendar.
      *
@@ -87,7 +84,7 @@ Class Controller_Ajax extends Controller
 		$view = View::factory('calendar');
 
 		// Select date to use, used for highlighting active date
-		// Don't select any date on initial load. Should be the only time this is called 
+		// Don't select any date on initial load. Should be the only time this is called
 		// without parameter.
 		//if(!$date) {
 		//	$date = date('Y-m-d');
@@ -97,11 +94,10 @@ Class Controller_Ajax extends Controller
 		// Get calendar contents
 		$hto = new Model_HTO();
 		$view->dates = $hto->getDates();
-		
+
 		$this->request->response = $view->render();
-	}  
-	
-	
+	}
+
 	/**
      * Gets the expanded calendar.
      *
@@ -109,7 +105,7 @@ Class Controller_Ajax extends Controller
 	function action_get_calendar_expanded($date = false) {
 		noCacheHeaders();
 		$view = View::factory('calendar_expanded');
-		
+
 		// Select date to use, used for highlighting active date
 		if(!$date) {
 			$date = date('Y-m-d');
@@ -119,11 +115,10 @@ Class Controller_Ajax extends Controller
 		// Get calendar contents
 		$hto = new Model_HTO();
 		$view->dates = $hto->getDates(60);
-		
+
 		$this->request->response = $view->render();
 	}
-    
-    
+
     /**
      * Prints the form
      *
@@ -131,17 +126,16 @@ Class Controller_Ajax extends Controller
 	function action_form($date = false) {
 		noCacheHeaders();
 		$view = View::factory('form');
-		
+
 		if(!$date) {
 			$date = date('Y-m-d');
 		}
-		
+
 		$view->date = $date;
-		
+
 		$this->request->response = $view->render();
 	}
-	
-	
+
 	/**
 	 * AJAX form submit handler
 	 *
@@ -149,18 +143,17 @@ Class Controller_Ajax extends Controller
 	function action_save() {
 		noCacheHeaders();
 		$hto = new Model_HTO();
-		
+
 		$hto->addPerson($_POST);
-		
+
 		$return = array(
 			'status' => 1,
 			'message' => 'Ilmoittautuminen vastaanotettu.',
 		);
-		
+
 		die(json_encode($return));
 	}
-		
-		
+
 	/**
 	 * Day edit AJAX form submit handler
 	 *
@@ -168,42 +161,40 @@ Class Controller_Ajax extends Controller
 	function action_save_date() {
 		noCacheHeaders();
 		$hto = new Model_HTO();
-		
+
 		$hto->updateDate($_POST);
-		
+
 		$return = array(
 			'status' => 1,
 			'message' => 'Muutokset tallennettu.',
 		);
-		
+
 		die(json_encode($return));
 	}
-	
-	
+
 	/**
 	 * Delete person from a date
 	 *
-	 */ 
+	 */
 	function action_delete() {
 		noCacheHeaders();
 		$hto = new Model_HTO();
-		
+
 		$id = (int)$_POST['id'];
-		
+
 		$hto->deletePerson($id);
-		
+
 		$return = array(
 			'status' => 1,
 			'message' => 'Henkilö poistettu.',
 		);
-		
+
 		die(json_encode($return));
-	} 
-	
-	
+	}
+
 	/**
 	 * Gets the data for a single row for editing the row
-	 * 
+	 *
 	 */
 	function action_get_row($id) {
 		noCacheHeaders();
@@ -211,8 +202,7 @@ Class Controller_Ajax extends Controller
 		$row = $hto->getRow($id);
 		die(json_encode($row));
 	}
-	
-	
+
 	/**
 	 * Saves changes after editing
 	 *
@@ -220,18 +210,17 @@ Class Controller_Ajax extends Controller
 	function action_edit() {
 		noCacheHeaders();
 		$hto = new Model_HTO();
-		
+
 		$hto->editPerson($_POST);
-		
+
 		$return = array(
 			'status' => 1,
 			'message' => 'Muutokset tallennettu.',
 		);
-		
+
 		die(json_encode($return));
 	}
-	
-	
+
 	/**
 	 * Returns HTML for embedding HTO on another page
 	 *
@@ -241,11 +230,10 @@ Class Controller_Ajax extends Controller
 		noCacheHeaders();
 		// Get front page view, and add rendered calendar to it
 		$view = View::factory('fragment');
-		
+
 		$this->request->response = $view->render();
 	}
-	
-	
+
 	/**
 	 * Generates background images for the calendar dates
 	 *
@@ -257,14 +245,14 @@ Class Controller_Ajax extends Controller
 		$happy = (int)$_GET['h'];
 		$unhappy = (int)$_GET['u'];
 		$canceled = (int)$_GET['n'];
-		
+
 		$width = 66;
-		$personBlockWidth = ceil($width/10); // Make 9 people "fill up" the day
-		
+		$personBlockWidth = ceil($width/Kohana::config('config.miscvars.DayFilled')); // Make 5 people "fill up" the day
+
 		header("Content-type: image/png");
-		
+
 		$img = imagecreatetruecolor($width, 26);
-		
+
 		$white = imagecolorallocate($img, 255, 255, 255);
 		$black = imagecolorallocate($img, 0,0,0);
 		$gray = imagecolorallocate($img, 192, 192, 192);
@@ -274,14 +262,14 @@ Class Controller_Ajax extends Controller
 		$green = imagecolorallocate($img, 120, 255, 120);
 		$red = imagecolorallocate($img, 255, 160, 160);
 		$yellow = imagecolorallocate($img, 255, 255, 120);
-		
+
 		if($canceled) {
-			imagefill($img, 0,0, $gray);		
+			imagefill($img, 0,0, $gray);
 		}
 		else {
 			// bg
 			imagefill($img, 0,0,$white);
-			
+
 			// CTQ Pilot slot
 			$points = array(
 				0,0,
@@ -290,9 +278,9 @@ Class Controller_Ajax extends Controller
 				0,4,
 			);
 			if($ctq) {
-				imagefilledpolygon ( $img , $points , 4 , $blue );		
+				imagefilledpolygon ( $img , $points , 4 , $blue );
 			}
-	
+
 			// XDZ Pilot slot
 			$points = array(
 				0,21,
@@ -303,7 +291,7 @@ Class Controller_Ajax extends Controller
 			if($xdz) {
 				imagefilledpolygon ( $img , $points , 4 , $yellow );
 			}
-			
+
 			// Happy people slot
 			$happyX = $happy*$personBlockWidth;
 			if($happyX > $width) {
@@ -318,7 +306,7 @@ Class Controller_Ajax extends Controller
 			if($happy) {
 				imagefilledpolygon ( $img , $points , 4 , $green );
 			}
-			
+
 			// Unhappy people slot
 			$unhappyX = $unhappy*$personBlockWidth;
 			if($unhappyX > $width) {
@@ -332,14 +320,14 @@ Class Controller_Ajax extends Controller
 				0,20
 			);
 			if($unhappy) {
-				imagefilledpolygon ( $img , $points , 4 , $red);		
-			}		
+				imagefilledpolygon ( $img , $points , 4 , $red);
+			}
 		}
-		
+
 		imagepng($img);
 		die();
 	}
-	
+
 	function action_test() {
 		die('*'.URL::base().'*');
 	}
@@ -347,16 +335,16 @@ Class Controller_Ajax extends Controller
 
 function logg($thing) {
 	$fp = fopen('application/logs/debug.log', 'a');
-	
+
 	if(is_array($thing) || is_object($thing)) {
 		fputs($fp, print_r($thing, true));
 	}
 	else {
-		fputs($fp, $thing);	
+		fputs($fp, $thing);
 	}
-	
+
 	fputs($fp, "\n");
-	
+
 	fclose($fp);
 }
 
