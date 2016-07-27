@@ -265,8 +265,11 @@ function hTOInit() {
 		$("#tooltip")
 			.css("top",(e.pageY - xOffset) + "px")
 			.css("left",(e.pageX + yOffset) + "px")
-			.fadeIn("fast");		
-    });
+			.fadeIn("fast");
+		setTimeout(function() {
+			$("#tooltip").remove();
+		}, 3000);
+	});
     
 	$(".tooltip").live('mouseleave', function(){
 			this.title = encodeURIComponent(this.t);		
