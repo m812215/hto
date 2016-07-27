@@ -9,8 +9,7 @@
 </head>
 
 <body>
-	<p>This could be like a header. This is a test page that attempts to simulate any page that the HTO might be embedded in.</p>
-	
+
 	<div id="hTOWrapper">
 		<script type="text/javascript" src="/hto/js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript">
@@ -19,6 +18,5 @@
 			});
 		</script>
 	</div>
-	
-	<p>.. and this could be a footer. Between them the HTO should appear.</p>
+
 </body>
