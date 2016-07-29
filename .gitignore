@@ -1,3 +1,5 @@
+.htaccess
+
 # Compiled Python files
 *.pyc
 
