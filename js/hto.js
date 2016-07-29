@@ -257,18 +257,22 @@ function hTOInit() {
 		yOffset = 20;		
 		// these 2 variable determine popup's distance from the cursor
 		// you might want to adjust to get the right result		
-	/* END CONFIG */		
-	$(".tooltip").live('mouseenter', function(e){				  
-		this.t = decodeURIComponent(this.title);
-		this.title = "";									  
-		$("body").append("<div id='tooltip'>"+ this.t +"</div>");
-		$("#tooltip")
-			.css("top",(e.pageY - xOffset) + "px")
-			.css("left",(e.pageX + yOffset) + "px")
-			.fadeIn("fast");
-		setTimeout(function() {
-			$("#tooltip").remove();
-		}, 3000);
+	/* END CONFIG */
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+
+	$(".tooltip").live('mouseenter', function(e){
+		if(!isMobile) {
+			this.t = decodeURIComponent(this.title);
+			this.title = "";
+			$("body").append("<div id='tooltip'>"+ this.t +"</div>");
+			$("#tooltip")
+				.css("top",(e.pageY - xOffset) + "px")
+				.css("left",(e.pageX + yOffset) + "px")
+				.fadeIn("fast");
+			setTimeout(function() {
+				$("#tooltip").remove();
+			}, 3000);
+		}
 	});
     
 	$(".tooltip").live('mouseleave', function(){
