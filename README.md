@@ -1,5 +1,8 @@
 # Hyppytoimintaorganisaattori
 
+Alkuperäinen koodi on https://github.com/xird käsialaa. Kaikki kreditti sinne,
+minne se kuuluu!
+
 Tämä on kevyt Kohana-frameworkiin perustuva softa, jonka tarkoitus on helpottaa
 hyppytoiminnan järjestelyjä kerhossa.
 
